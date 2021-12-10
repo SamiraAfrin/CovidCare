@@ -5,8 +5,9 @@
             <h2 class=" text-primary">ApplicationUserList</h2>
         </div>
     </div>
-    <div col="col-6">
-        Create New Category
+    <div class="col-md-12 text-right">
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary">Register New User</a>
+
     </div>
     <br /><br />
     @if (Model.Count()>0)
@@ -30,9 +31,7 @@
             <tbody>
                 @foreach (var obj in Model)
                 {
-
-                <tr>
-                    <th scope="row"> </th>
+                  <tr>
                     <td>@obj.Id</td>
                     <td>@obj.NID</td>
                     <td>@obj.FullName</td>

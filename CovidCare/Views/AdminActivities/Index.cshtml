@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CovidCare.Models.ApplicationUser>
+<div class=" container p-3">
+    <div class=" row pt-4">
+        <div class="col-10">
+            <h2 class=" text-primary">ApplicationUserList</h2>
+        </div>
+    </div>
+    <div col="col-6">
+        Create New Category
+    </div>
+    <br /><br />
+    @if (Model.Count()>0)
+    {
+        <table class="table-bordered table-stripped table-hover" style="width: 100% ">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">NID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Vaccination</th>
+                    <th scope="col">PosDate</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+
+                <tr>
+                    <th scope="row"> </th>
+                    <td>@obj.Id</td>
+                    <td>@obj.NID</td>
+                    <td>@obj.FullName</td>
+                    <td>@obj.Email</td>
+                    <td>@obj.Gender</td>
+                    <td>@obj.Age</td>
+                    <td>@obj.VaccinationStatus</td>
+                    <td>@obj.PosDate</td>
+                    <td>@obj.PhoneNumber</td>
+                    <td>@obj.Address</td>
+                    <td>@obj.Description</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> No User is Registered yet.</p>
+    }
+
+</div>
+

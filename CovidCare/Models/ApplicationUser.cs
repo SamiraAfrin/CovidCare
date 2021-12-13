@@ -9,16 +9,22 @@ namespace CovidCare.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        [Required(ErrorMessage = "Please enter name")]
+        [Required(ErrorMessage = "Required")]
         public string NID { get; set; }
+        [Required(ErrorMessage = "Required")] 
         public string FullName { get; set; }
+        [Required(ErrorMessage = "Required")] 
         public string Gender { get; set; }
+        [Required(ErrorMessage = "Required")]
         public int Age { get; set; }
+        [Required(ErrorMessage = "Required")]
         public string VaccinationStatus { get; set; }
 
+        [Required(ErrorMessage = "Required")]
         [DataType(DataType.Date)]
         public DateTime PosDate { get; set; }
-        //public string PosDate { get; set; }
+        
+        [Required(ErrorMessage = "Required")] 
         public string Address { get; set; }
         public string Description { get; set; }
 

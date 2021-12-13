@@ -1,17 +1,24 @@
-﻿using CovidCare.Models;
+﻿using CovidCare.Data;
+using CovidCare.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+
+
 
 namespace CovidCare.Controllers
 {
     public class DashboardController : Controller
     {
         private readonly ILogger<DashboardController> _logger;
+        
+
 
         public DashboardController(ILogger<DashboardController> logger)
         {
@@ -23,6 +30,7 @@ namespace CovidCare.Controllers
             return View();
         }
 
+
         public IActionResult Privacy()
         {
             return View();
@@ -33,5 +41,10 @@ namespace CovidCare.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        
+
+
+
+
     }
 }

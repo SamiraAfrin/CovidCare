@@ -16,5 +16,7 @@ namespace CovidCare.Data
 
     }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
+        
     }
 }

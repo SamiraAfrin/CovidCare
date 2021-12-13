@@ -1,5 +1,10 @@
-﻿@{
+﻿@model CovidCare.Models.ApplicationUser
+@{
     ViewData["Title"] = "Dashboard";
 }
 
 <h1>Hello Dashboard</h1>
+<div class="col-md-12 text-right">
+    <a asp-controller="UserActivities" asp-action="Summary" class="btn btn-primary">User Profile</a>
+
+</div>

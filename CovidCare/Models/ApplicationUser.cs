@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace CovidCare.Models
 {
     public class ApplicationUser : IdentityUser
-    {
-        [Required(ErrorMessage = "Required")]
+    {   [Required]
+        [StringLength(17, MinimumLength = 17, ErrorMessage = "This field must be 17 characters")]
         public string NID { get; set; }
         [Required(ErrorMessage = "Required")] 
         public string FullName { get; set; }

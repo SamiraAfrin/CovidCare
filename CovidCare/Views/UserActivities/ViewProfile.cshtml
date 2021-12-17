@@ -1,6 +1,6 @@
 ﻿@model CovidCare.Models.ApplicationUser
 
-<form method="post" asp-action="Summary">
+<form method="post" asp-action="ViewProfile">
     <br />
     <div class="backgroundWhiteBorder">
         <div class="container">
@@ -24,7 +24,7 @@
                                         <label>NID</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.NID" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.NID" type="text" class="form-control" />
                                         <span asp-validation-for="Id" class="text-danger"></span>
 
                                     </div>
@@ -34,7 +34,7 @@
                                         <label>Full Name</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.FullName" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.FullName" type="text" class="form-control" />
                                         <span asp-validation-for="FullName" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -43,7 +43,7 @@
                                         <label>Email</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.Email" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.Email" type="text" class="form-control" />
                                         <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                         <label>Gender</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.Gender" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.Gender" type="text" class="form-control" />
                                         <span asp-validation-for="Gender" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                         <label>Age</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.Age" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.Age" type="text" class="form-control" />
                                         <span asp-validation-for="Age" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                         <label>Vaccination Status</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.VaccinationStatus" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.VaccinationStatus" type="text" class="form-control" />
                                         <span asp-validation-for="VaccinationStatus" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                         <label>Tested Positive</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.PosDate" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.PosDate" type="text" class="form-control" />
                                         <span asp-validation-for="PosDate" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                         <label>Contact Number</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.PhoneNumber" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.PhoneNumber" type="text" class="form-control" />
                                         <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                         <label>Address</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.Address" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.Address" type="text" class="form-control" />
                                         <span asp-validation-for="Address" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@
                                         <label>Description</label>
                                     </div>
                                     <div class="col-9">
-                                        <input asp-for="@Model.Description" type="text" class="form-control" />
+                                        <input disabled asp-for="@Model.Description" type="text" class="form-control" />
                                         <span asp-validation-for="Description" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -115,8 +115,9 @@
                                         <label></label>
                                     </div>
                                     <div class="col text-center">
-                                        <a class="btn btn-info btn-lg login">Update</a></div>
-                                </div>
+                                        <a asp-controller="UserActivities" asp-action="Edit" class="btn btn-success mx-2">Update</a>
+                                        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-info mx-4">Back</a>
+                                    </div>
                             </div>
                     </div>
                 </div>

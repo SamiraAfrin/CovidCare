@@ -21,14 +21,14 @@ namespace CovidCare.Controllers
 
         public IActionResult GetList()
         {
-            
+
             {
                 IEnumerable<ApplicationUser> objList = _db.ApplicationUser;
                 return View(objList);
             }
         }
 
-        //GET -EDIT (Have to fix this)
+        //GET -EDIT 
         public IActionResult Edit(string Id)
         {
             if (Id == null)
@@ -42,22 +42,53 @@ namespace CovidCare.Controllers
             }
             return View(obj);
         }
-        //POST - EDIT
+        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(ApplicationUser obj)
+        public async Task<IActionResult> EditPost(string Id)
         {
-            if (ModelState.IsValid)
+            if (Id == null)
             {
-                _db.ApplicationUser.Update(obj);
-                _db.SaveChanges();
-                return RedirectToAction("GetList");
-
-
+                return NotFound();
             }
 
-            return View(obj);
+            var infoToUpdate = await _db.ApplicationUser
+                .FirstOrDefaultAsync(c => c.Id == Id);
+
+            if (await TryUpdateModelAsync<ApplicationUser>(infoToUpdate,
+                "",
+                c => c.NID,
+                c => c.FullName,
+                c =>c.Email,
+                c => c.Gender,
+                c => c.Age,
+                c => c.VaccinationStatus,
+                c => c.PosDate,
+                c => c.PhoneNumber,
+                c => c.Address,
+                c => c.Description))
+            {
+                try
+                {
+                    await _db.SaveChangesAsync();
+                }
+                catch (DbUpdateException /* ex */)
+                {
+                    //Log the error (uncomment ex variable name and write a log.)
+                    ModelState.AddModelError("", "Unable to save changes. " +
+                        "Try again, and if the problem persists, " +
+                        "see your system administrator.");
+                }
+                return RedirectToAction("GetList");
+            }
+            return View(infoToUpdate);
         }
+
+
+    
+
+            
 
 
 
@@ -97,4 +128,5 @@ namespace CovidCare.Controllers
 
     }
     }
+
 

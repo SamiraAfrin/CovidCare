@@ -4,7 +4,11 @@
 }
 
 <h1>Hello Dashboard</h1>
-<div class="col-md-12 text-right">
-    <a asp-controller="UserActivities" asp-action="Summary" class="btn btn-primary">User Profile</a>
+@if (this.User.Identity.IsAuthenticated)
+{
+    <div class="col-md-12 text-right">
+        <a asp-controller="UserActivities" asp-action="ViewProfile" class="btn btn-primary">Profile Settings</a>
 
-</div>
+    </div>
+}
+

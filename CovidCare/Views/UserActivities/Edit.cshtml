@@ -1,10 +1,10 @@
 ﻿@model CovidCare.Models.ApplicationUser
 
-<form method="post" asp-action="EditPost">
+<form method="post" asp-action="Edit">
     <input asp-for="Id" hidden />
     <div class="border p-3">
         <div class="form-group row">
-            <h2 class="text-info-pl-3">Edit User Account</h2>
+            <h2 class="text-info-pl-3">Edit Profile Setting </h2>
         </div>
         <div class="row">
             <div class="col-8">
@@ -13,7 +13,7 @@
                         <label asp-for="NID"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="NID" class="form-control" />
+                        <input disabled asp-for="NID" class="form-control" />
                         <span asp-validation-for="NID" class="text-danger"></span>
                     </div>
 
@@ -33,7 +33,7 @@
                         <label asp-for="Email"></label>
                     </div>
                     <div class="col-8">
-                        <input asp-for="Email" class="form-control" />
+                        <input disabled asp-for="Email" class="form-control" />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
 
@@ -123,10 +123,7 @@
                     <div class="col-8 offset-4 row">
 
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Update" />
-                        </div>
-                        <div class="col">
-                            <a asp-controller="AdminActivities" asp-action="GetList" class="btn btn-success w-100">Back</a>
+                            <input type="submit" class="btn btn-info w-100" value="Save Profile" />
                         </div>
                     </div>
                 </div>
@@ -137,4 +134,5 @@
         </div>
     </div>
 </form>
+
 

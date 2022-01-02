@@ -13,6 +13,7 @@ namespace CovidCare.Controllers
     {
 
         private readonly ApplicationDbContext _db;
+       
 
         public AdminActivitiesController(ApplicationDbContext db)
         {
@@ -62,7 +63,7 @@ namespace CovidCare.Controllers
                 c => c.FullName,
                 c =>c.Email,
                 c => c.Gender,
-                c => c.Age,
+                c => c.DOB,
                 c => c.VaccinationStatus,
                 c => c.PosDate,
                 c => c.PhoneNumber,
@@ -95,7 +96,7 @@ namespace CovidCare.Controllers
 
 
         //GET -DELETE
-        public IActionResult Delete(string? Id)
+        public IActionResult Delete(string Id)
         {
             if (Id == null)
             {
@@ -111,15 +112,23 @@ namespace CovidCare.Controllers
         //POST - DELETE
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeletePost (string? Id)
+        public IActionResult DeletePost (string Id)
         {
             var obj = _db.ApplicationUser.Find(Id);
             if(obj == null)
             {
                 return NotFound();
             }
-            
             _db.ApplicationUser.Remove(obj);
+            var objList = _db.Report.Where(c => c.Id == Id).ToList();
+            if (objList.Count() > 0)
+            {
+                for(var i = 0; i < objList.Count; i ++)
+                {
+                    _db.Report.Remove(objList[i]);
+                }
+            }
+
             _db.SaveChanges();
             return RedirectToAction("GetList");
             

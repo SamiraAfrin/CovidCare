@@ -77,8 +77,8 @@ namespace CovidCare.Areas.Identity.Pages.Account
             [Required]
             public string FullName { get; set; }
             [Required]
-            [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
-            public int Age { get; set; }
+            [DataType(DataType.Date)]
+            public DateTime DOB { get; set; }
             [Required]
             public string Gender { get; set; }
             [Required]
@@ -87,7 +87,7 @@ namespace CovidCare.Areas.Identity.Pages.Account
             [DataType(DataType.Date)]
             public DateTime PosDate { get; set; }
             [Required]
-            [StringLength(11, MinimumLength = 11, ErrorMessage = "This field must be 17 characters")]
+            [StringLength(11, MinimumLength = 11, ErrorMessage = "This field must be 11 characters")]
             public string PhoneNumber { get; set; }
             [Required]
             public string Address { get; set; }
@@ -95,7 +95,9 @@ namespace CovidCare.Areas.Identity.Pages.Account
         }
 
         public async Task OnGetAsync(string returnUrl = null)
-        {   if(!await _roleManager.RoleExistsAsync(WC.AdminRole))
+        {
+            
+            if (!await _roleManager.RoleExistsAsync(WC.AdminRole))
             {
                 await _roleManager.CreateAsync(new IdentityRole(WC.AdminRole));
                 await _roleManager.CreateAsync(new IdentityRole(WC.PatientRole));
@@ -113,7 +115,7 @@ namespace CovidCare.Areas.Identity.Pages.Account
                 var user = new ApplicationUser { UserName = Input.Email, 
                     NID = Input.NID,
                     FullName = Input.FullName,
-                    Age =  Input.Age,
+                    DOB =  Input.DOB,
                     Gender = Input.Gender,
                     VaccinationStatus = Input.VaccinationStatus,
                     PosDate = Input.PosDate,
@@ -126,7 +128,7 @@ namespace CovidCare.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    var c = _db.ApplicationUser.Count(); // how many user in application user table
+
                     if (User.IsInRole(WC.AdminRole))
                     {
                         //an admin has logged in and try to create new user
@@ -136,7 +138,7 @@ namespace CovidCare.Areas.Identity.Pages.Account
                     {
                         await _userManager.AddToRoleAsync(user, WC.PatientRole);
                     }
-                    
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

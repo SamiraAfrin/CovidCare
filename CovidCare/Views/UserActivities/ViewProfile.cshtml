@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header bg-dark text-light ml-0 row container">
                     <div class="col-6">
-                        <i class="fa fa-shopping-cart"></i> &nbsp;
+                        <i class="fas fa-user"></i> &nbsp;
                         User Profile
                     </div>
                     <div class="col-6 text-right">
@@ -61,8 +61,8 @@
                                         <label>Age</label>
                                     </div>
                                     <div class="col-9">
-                                        <input disabled asp-for="@Model.Age" type="text" class="form-control" />
-                                        <span asp-validation-for="Age" class="text-danger"></span>
+                                        <input disabled asp-for="@Model.DOB" type="text" class="form-control" />
+                                        <span asp-validation-for="DOB" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row my-1">
@@ -115,8 +115,8 @@
                                         <label></label>
                                     </div>
                                     <div class="col text-center">
-                                        <a asp-controller="UserActivities" asp-action="Edit" class="btn btn-success mx-2">Update</a>
-                                        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-info mx-4">Back</a>
+                                        <a asp-controller="UserActivities" asp-action="Edit" class="btn btn-success mx-2"><i class="fas fa-pen"></i> Update </a>
+                                        <a asp-controller="Dashboard" asp-action="Index" class="btn btn-info mx-4"><i class="fas fa-backward"></i> Back </a>
                                     </div>
                             </div>
                     </div>
@@ -124,6 +124,8 @@
             </div>
         </div>
     </div>
+   </div>
+ </div>
 </form>
 
 

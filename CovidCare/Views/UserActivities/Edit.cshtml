@@ -1,138 +1,166 @@
 ﻿@model CovidCare.Models.ApplicationUser
 
-<form method="post" asp-action="Edit">
+<form method="post" asp-action="EditPost">
+    <br />
     <input asp-for="Id" hidden />
-    <div class="border p-3">
-        <div class="form-group row">
-            <h2 class="text-info-pl-3">Edit Profile Setting </h2>
-        </div>
-        <div class="row">
-            <div class="col-8">
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="NID"></label>
-                    </div>
-                    <div class="col-8">
-                        <input disabled asp-for="NID" class="form-control" />
-                        <span asp-validation-for="NID" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="FullName"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="FullName" class="form-control" />
-                        <span asp-validation-for="FullName" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Email"></label>
-                    </div>
-                    <div class="col-8">
-                        <input disabled asp-for="Email" class="form-control" />
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Gender"></label>
-                    </div>
-                    <div class="col-8">
-                        <select asp-for="Gender" class="form-control">
-                            <option value="" selected disabled>Please select</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Do not want to mention">Do not want to mention</option>
-                        </select>
-                        <span asp-validation-for="Gender" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Age"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Age" class="form-control" />
-                        <span asp-validation-for="Age" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="VaccinationStatus"></label>
-                    </div>
-                    <div class="col-8">
-                        <select asp-for="VaccinationStatus" class="form-control">
-                            <option value="" selected disabled>Please select</option>
-                            <option value="Fully Vaccinated">Fully Vaccinated</option>
-                            <option value="First dose completed">First dose completed</option>
-                            <option value="Do not take any dose yet">Do not take any dose yet</option>
-                        </select>
-                        <span asp-validation-for="VaccinationStatus" class="text-danger"></span>
-
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="PosDate"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="PosDate" class="form-control" />
-                        <span asp-validation-for="PosDate" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="PhoneNumber"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="PhoneNumber" class="form-control" />
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Address"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Address" class="form-control" />
-                        <span asp-validation-for="Address" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-4">
-                        <label asp-for="Description"></label>
-                    </div>
-                    <div class="col-8">
-                        <input asp-for="Description" class="form-control" />
-                        <span asp-validation-for="Description" class="text-danger"></span>
-                    </div>
-
-                </div>
-                <div class="form-group row">
-                    <div class="col-8 offset-4 row">
-
-                        <div class="col">
-                            <input type="submit" class="btn btn-info w-100" value="Save Profile" />
+        <div class="backgroundWhiteBorder">
+            <div class=" container p-3">
+                <div class=" row pt-4">
+                    <div class="card text-left" style="width: 100%" height:30%>
+                        <div class="card-header bg-dark text-light ml-0 row container">
+                            <div class="col-6">
+                                <i class="fas fa-align-left"></i> Edit Profile Setting
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-4">
-                @* Keep this empty *@
+        <br />
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="NID"></label>
+                        </div>
+                        <div class="col-8">
+                            <input disabled asp-for="NID" class="form-control" />
+                            <span asp-validation-for="NID" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="FullName"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Email"></label>
+                        </div>
+                        <div class="col-8">
+                            <input disabled asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Gender"></label>
+                        </div>
+                        <div class="col-8">
+                            <select asp-for="Gender" class="form-control">
+                                <option value="" selected disabled>Please select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Do not want to mention">Do not want to mention</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="DOB"></label>
+                        </div>
+                        <div class="col-8">
+                            <input disabled asp-for="DOB" class="form-control" />
+                            <span asp-validation-for="DOB" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="VaccinationStatus"></label>
+                        </div>
+                        <div class="col-8">
+                            <select asp-for="VaccinationStatus" class="form-control">
+                                <option value="" selected disabled>Please select</option>
+                                <option value="Fully Vaccinated">Fully Vaccinated</option>
+                                <option value="First dose completed">First dose completed</option>
+                                <option value="Do not take any dose yet">Do not take any dose yet</option>
+                            </select>
+                            <span asp-validation-for="VaccinationStatus" class="text-danger"></span>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="PosDate"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="PosDate" class="form-control" />
+                            <span asp-validation-for="PosDate" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="PhoneNumber"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Address"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Description"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Description" class="form-control" />
+                            @*<textarea asp-for="Description" class="form-control summernote"></textarea>*@
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-8 offset-4 row">
+
+                            <div class="col">
+                                <input type="submit" class="btn btn-success mx-4" value="Save Profile" />
+                                <a asp-controller="UserActivities" asp-action="ViewProfile" class="btn btn-info mx-lg-n2"><i class="fas fa-backward"></i> Back </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    @* Keep this empty *@
+                </div>
             </div>
         </div>
-    </div>
 </form>
+@section Scripts{
+
+    @{
+
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script>
+        $(document).ready(function () {
+            $('.summernote').summernote(
+                height = 400
+            );
+        })
+    </script>
+
+}
 
 

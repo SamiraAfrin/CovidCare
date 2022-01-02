@@ -1,0 +1,115 @@
+﻿@model CovidCare.Models.Report
+
+<form method="post" asp-action="AddReport">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="backgroundWhiteBorder">
+            <div class=" container p-3">
+                <div class=" row pt-4">
+                    <div class="card text-left" style="width: 100%" height:30%>
+                        <div class="card-header bg-dark text-light ml-0 row container">
+                            <div class="col-6">
+                                <i class="fas fa-align-left"></i>  ADD REPORT
+                            </div>
+                            <div class="col-6 text-right">
+                                <a asp-controller="UserActivities" asp-action="ShowReport" a class="btn btn-outline-info btn-sm"><i class="fas fa-align-left"></i> Show Report List </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+        <br />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for=" Date"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Date" class="form-control" />
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="BoTep"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="BoTep" placeholder="Enter Body temperature in Fahrenheit scale" class="form-control" />
+                            <span asp-validation-for="BoTep" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="OR"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="OR" placeholder="Enter Oximeter Reading" class="form-control" />
+                            <span asp-validation-for="OR" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="BP_high"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="BP_high" placeholder="Enter Blood Pressure" class="form-control" />
+                            @*<span asp-validation-for="BP" class="text-danger"></span>*@
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="BP_low"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="BP_low" placeholder="Enter Blood Pressure" class="form-control" />
+                            @*<span asp-validation-for="BP" class="text-danger"></span>*@
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="SL"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="SL" placeholder="Enter Sugar Level" class="form-control" />
+                            @*<span asp-validation-for="SL" class="text-danger"></span>*@
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Description"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Description" placeholder="Any symtoms you want to add" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-8 offset-4 row">
+
+                            <div class="col">
+                                <input type="submit" class="btn btn-success mx-4" value="Save Report" />
+                                <a asp-controller="Dashboard" asp-action="Index" class="btn btn-info mx-lg-n2"><i class="fas fa-backward"></i> Back </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    @* Keep this empty *@
+                </div>
+            </div>
+        </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

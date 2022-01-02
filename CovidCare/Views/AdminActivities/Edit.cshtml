@@ -1,0 +1,140 @@
+﻿@model CovidCare.Models.ApplicationUser
+
+<form method="post" asp-action="Edit">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info-pl-3">Edit User Account</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="NID"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="NID" class="form-control" />
+                        <span asp-validation-for="NID" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="FullName"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="FullName" class="form-control" />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Email"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Gender"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="Gender" class="form-control">
+                            <option value="" selected disabled>Please select</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Do not want to mention">Do not want to mention</option>
+                        </select>
+                        <span asp-validation-for="Gender" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Age"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="VaccinationStatus"></label>
+                    </div>
+                    <div class="col-8">
+                        <select asp-for="VaccinationStatus" class="form-control">
+                            <option value="" selected disabled>Please select</option>
+                            <option value="Fully Vaccinated">Fully Vaccinated</option>
+                            <option value="First dose completed">First dose completed</option>
+                            <option value="Do not take any dose yet">Do not take any dose yet</option>
+                        </select>
+                        <span asp-validation-for="VaccinationStatus" class="text-danger"></span>
+
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="PosDate"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="PosDate" class="form-control" />
+                        <span asp-validation-for="PosDate" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="PhoneNumber"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="PhoneNumber" class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Address"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="Description"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-controller="AdminActivities" asp-action="GetList" class="btn btn-success w-100">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+    </div>
+</form>
+

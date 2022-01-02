@@ -9,7 +9,7 @@ namespace CovidCare.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        
+        [Required(ErrorMessage = "Please enter name")]
         public string NID { get; set; }
         public string FullName { get; set; }
         public string Gender { get; set; }

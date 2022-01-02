@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using CovidCare.Data;
 using CovidCare.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -14,6 +15,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+
+
 
 namespace CovidCare.Areas.Identity.Pages.Account
 {
@@ -25,19 +28,22 @@ namespace CovidCare.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly ApplicationDbContext _db;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            ApplicationDbContext db)
         {
             _roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _db = db;
         }
 
         [BindProperty]
@@ -64,21 +70,34 @@ namespace CovidCare.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-            public string NID { get; set; }
-            public string FullName { get; set; }
-            public int Age { get; set; }
-            public string Gender { get; set; }
 
+            [Required]
+            [StringLength(17, MinimumLength = 17, ErrorMessage = "This field must be 17 characters")]
+            public string NID { get; set; }
+            [Required]
+            public string FullName { get; set; }
+            [Required]
+            [DataType(DataType.Date)]
+            public DateTime DOB { get; set; }
+            [Required]
+            public string Gender { get; set; }
+            [Required]
             public string VaccinationStatus { get; set; }
+            [Required]
             [DataType(DataType.Date)]
             public DateTime PosDate { get; set; }
+            [Required]
+            [StringLength(11, MinimumLength = 11, ErrorMessage = "This field must be 11 characters")]
             public string PhoneNumber { get; set; }
+            [Required]
             public string Address { get; set; }
             public string Description { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
-        {   if(! await _roleManager.RoleExistsAsync(WC.AdminRole))
+        {
+            
+            if (!await _roleManager.RoleExistsAsync(WC.AdminRole))
             {
                 await _roleManager.CreateAsync(new IdentityRole(WC.AdminRole));
                 await _roleManager.CreateAsync(new IdentityRole(WC.PatientRole));
@@ -96,7 +115,7 @@ namespace CovidCare.Areas.Identity.Pages.Account
                 var user = new ApplicationUser { UserName = Input.Email, 
                     NID = Input.NID,
                     FullName = Input.FullName,
-                    Age =  Input.Age,
+                    DOB =  Input.DOB,
                     Gender = Input.Gender,
                     VaccinationStatus = Input.VaccinationStatus,
                     PosDate = Input.PosDate,
@@ -109,6 +128,7 @@ namespace CovidCare.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+
                     if (User.IsInRole(WC.AdminRole))
                     {
                         //an admin has logged in and try to create new user
@@ -118,7 +138,7 @@ namespace CovidCare.Areas.Identity.Pages.Account
                     {
                         await _userManager.AddToRoleAsync(user, WC.PatientRole);
                     }
-                    
+
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

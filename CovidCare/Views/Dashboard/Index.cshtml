@@ -2,9 +2,97 @@
 @{
     ViewData["Title"] = "Dashboard";
 }
+@*@if (this.User.Identity.IsAuthenticated)
+    {
+        <div class="col-md-12 text-right">
+            <a asp-controller="UserActivities" asp-action="ShowReport" class="btn btn-primary"><i class="fas fa-align-left"></i> Show Report </a>
+            <a asp-controller="UserActivities" asp-action="AddReport" class="btn btn-primary"><i class="fas fa-plus"></i> Add Report </a>
+            <a asp-controller="UserActivities" asp-action="ViewProfile" class="btn btn-primary"><i class="fas fa-user"></i> Profile Settings</a>
+        </div>
+    }*@
 
-<h1>Hello Dashboard</h1>
-<div class="col-md-12 text-right">
-    <a asp-controller="UserActivities" asp-action="Summary" class="btn btn-primary">User Profile</a>
+@if (this.User.IsInRole(CovidCare.WC.PatientRole) && this.User.Identity.IsAuthenticated)
+{
+    <div class="container-fluid">
+        <div class="row wrapper min-vh-100 flex-column flex-sm-row">
+            <aside class="col-12 col-sm-3 p-0 bg-dark flex-shrink-1">
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark align-items-start flex-sm-column flex-row">
+                    <a class="navbar-brand" href="#" style="padding: 10px">Services</a>
+                    <a href class="navbar-toggler" data-toggle="collapse" data-target=".sidebar">
+                        <span class="navbar-toggler-icon"></span>
+                    </a>
+                    <div class="collapse navbar-collapse sidebar">
+                        <ul>
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="ViewProfile" class="text-white"><i class="fas fa-user"></i> Profile</a>
 
-</div>
+                            </li>
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="Edit" class="text-white"><i class="fas fa-user-edit"></i> Update Profile </a>
+                            </li>
+
+
+
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="AddReport" class="text-white"><i class="fas fa-plus"></i> Add Report </a>
+
+                            </li>
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="ShowReport" class="text-white"><i class="fas fa-align-left"></i> Show Report </a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </aside>
+        </div>
+    </div>
+}
+else if (this.User.IsInRole(CovidCare.WC.AdminRole) && this.User.Identity.IsAuthenticated)
+{
+    <div class="container-fluid">
+        <div class="row wrapper min-vh-100 flex-column flex-sm-row">
+            <aside class="col-12 col-sm-3 p-0 bg-dark flex-shrink-1">
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark align-items-start flex-sm-column flex-row">
+                    <a class="navbar-brand" href="#" style="padding: 10px">Services</a>
+                    <a href class="navbar-toggler" data-toggle="collapse" data-target=".sidebar">
+                        <span class="navbar-toggler-icon"></span>
+                    </a>
+                    <div class="collapse navbar-collapse sidebar">
+                        <ul>
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="ViewProfile" class="text-white"><i class="fas fa-user"></i> Profile</a>
+
+                            </li>
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="Edit" class="text-white"><i class="fas fa-user-edit"></i> Update Profile </a>
+                            </li>
+
+
+
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="AddReport" class="text-white"><i class="fas fa-plus"></i> Add Report </a>
+
+                            </li>
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-controller="UserActivities" asp-action="ShowReport" class="text-white"><i class="fas fa-align-left"></i> Show Report </a>
+
+                            </li>
+                            <li class="nav-item" style="padding: 6px">
+                                <a asp-area="" asp-controller="AdminActivities" asp-action="GetList" class="text-white"><i class="fas fa-users"></i> Get All Users</a>
+
+                            </li>
+                            <li>
+                                <a asp-area="Identity" asp-page="/Account/Register" class="text-white" > <i class="fas fa-user"></i> Create Admin</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </nav>
+            </aside>
+        </div>
+    </div>
+
+}

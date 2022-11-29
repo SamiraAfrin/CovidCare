@@ -20,6 +20,6 @@ Lastly, they also get the updated information published by the government.
 ![Published Information](Images/covidcare_info.JPG)
 
 ## Map
-![Map](Images/covidcare_map.jpg)
+![Map](Images/covidcare_map.JPG)
 
 

@@ -12,11 +12,14 @@ Lastly, they also get the updated information published by the government.
 
 ## Report List
 ![Report List](Images/covidcare_reportlist.JPG)
->List of crime report and criminals can be sorted using any column.
+
 ## Add Report
 ![Add report](Images/covidcare_addreport.JPG)
-### Criminals List
-![Login Page](static/images/list_of_criminals.PNG)
 
-## Admin Dashboard
-![Login Page](static/images/admin-dashboard.PNG)
+## Published Information
+![Published Information](Images/covidcare_info.JPG)
+
+## Map
+![Map](Images/covidcare_map.jpg)
+
+

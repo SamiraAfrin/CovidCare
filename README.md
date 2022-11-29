@@ -5,7 +5,7 @@ Additionally, information such as no. of beds available and emergency services s
 Lastly, they also get the updated information published by the government.
 
 ## Register
-![Registration Page](Images/covidcareInfo.JPG)
+!(Images/covidcareInfo.JPG)
 
 ## Login
 ![Login Page](static/images/signin.PNG)

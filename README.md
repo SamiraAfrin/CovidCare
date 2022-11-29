@@ -4,7 +4,7 @@ the condition of the patient. Moreover, Users get the information of nearest hos
 Additionally, information such as no. of beds available and emergency services such as oxygen cylinder provider, ambulance, etc is given for patients.
 Lastly, they also get the updated information published by the government.
 
-## Register
+## Login
 ![Login_Page](Images/covidcare_login.JPG)
 
 ## Login

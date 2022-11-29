@@ -7,8 +7,8 @@ Lastly, they also get the updated information published by the government.
 ## Login
 ![Login_Page](Images/covidcare_login.JPG)
 
-## Login
-![Login Page](static/images/signin.PNG)
+## Profile
+![Login Page](Images/covidcare_profile.JPG)
 
 ## Officer Dashboard
 >List of crime report and criminals can be sorted using any column.
